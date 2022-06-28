@@ -2,5 +2,8 @@ module.exports = {
   transpileDependencies: [
     'vuetify'
   ],
-  publicPath: process.env.NODE_ENV === "production" ? "/" : "/",
+  publicPath: process.env.NODE_ENV === "production" ? "/autocomplete_vuejs/" : "/",
+  devServer: {
+    proxy: 'https://aqsone-reverse-proxy.herokuapp.com/'
+  }
 }
