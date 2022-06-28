@@ -266,6 +266,7 @@ export default class ConfigurationPanel extends Vue {
         text: `titre: ${title}\nsommaire:`,
         ...this.getCustomSettings(),
       },
+      withCredentials: false,
       headers: {
         Authorization: process.env.VUE_APP_API_KEY,
         "Content-Type": "application/json",
@@ -282,6 +283,7 @@ export default class ConfigurationPanel extends Vue {
         ...this.getCustomSettings(),
         text: `sujet: ${summary}\ncontenu:`,
       },
+      withCredentials: false,
       headers: {
         Authorization: process.env.VUE_APP_API_KEY,
         "Content-Type": "application/json",
