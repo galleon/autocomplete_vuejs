@@ -260,7 +260,7 @@ export default class ConfigurationPanel extends Vue {
   }
 
   public async requestSummary(title: string) {
-    return await axios(`https://aqsone-reverse-proxy.herokuapp.com/${this.article._metadata.api_url}`, {
+    return await axios(`${process.env.PROXY}${this.article._metadata.api_url}`, {
       method: "POST",
       data: {
         text: `titre: ${title}\nsommaire:`,
@@ -277,7 +277,7 @@ export default class ConfigurationPanel extends Vue {
   }
 
   public async requestSubjectContent(summary: string) {
-    return await axios(`https://aqsone-reverse-proxy.herokuapp.com/${this.article._metadata.api_url}`, {
+    return await axios(`${process.env.PROXY}${this.article._metadata.api_url}`, {
       method: "POST",
       data: {
         ...this.getCustomSettings(),
