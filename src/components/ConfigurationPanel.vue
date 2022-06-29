@@ -260,7 +260,7 @@ export default class ConfigurationPanel extends Vue {
   }
 
   public async requestSummary(title: string) {
-    return await axios(`${process.env.VUE_APP_PROXY || ''}${this.article._metadata.api_url}`, {
+    return await axios(`${this.article._metadata.api_proxy || ''}${this.article._metadata.api_url}`, {
       method: "POST",
       data: {
         text: `titre: ${title}\nsommaire:`,
@@ -273,11 +273,13 @@ export default class ConfigurationPanel extends Vue {
         Accept: "*/*",
         "Access-Control-Allow-Origin": "*",
       },
+    }).catch((error) => {
+      this.article.isLoading = false;
     });
   }
 
   public async requestSubjectContent(summary: string) {
-    return await axios(`${process.env.VUE_APP_PROXY || ''}${this.article._metadata.api_url}`, {
+    return await axios(`${this.article._metadata.api_proxy || ''}${this.article._metadata.api_url}`, {
       method: "POST",
       data: {
         ...this.getCustomSettings(),
@@ -290,6 +292,8 @@ export default class ConfigurationPanel extends Vue {
         Accept: "*/*",
         "Access-Control-Allow-Origin": "*",
       },
+    }).catch((error) => {
+      this.article.isLoading = false;
     });
   }
 }

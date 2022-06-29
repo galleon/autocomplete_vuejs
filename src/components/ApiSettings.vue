@@ -29,6 +29,14 @@
         </v-card-title>
 
         <v-card-text id="api_settings" v-if="article && article._metadata">
+
+          <v-text-field
+            v-model="article._metadata.api_proxy"
+            label="API Proxy"
+            class="api_setting"
+            hide-details
+          ></v-text-field>
+
           <v-text-field
             v-model="article._metadata.api_url"
             label="API Url"

@@ -27,14 +27,14 @@ import { commitSetArticle } from "@/store/main/mutations";
 export default class Article extends Vue {
   public mounted() {
     commitSetArticle(this.$store, {
-      title: "Comment devenir data scientist ?",
+      title: "",
       subjects: [],
       _summary: "",
       lastTitleUpdate: Date.now(),
       lastSummaryUpdate: Date.now(),
       _metadata: {
-        api_url:
-          "https://api.nlpcloud.io/v1/gpu/custom-model/gpt-j-42e36450/generation?",
+        api_proxy: "https://aqsone-reverse-proxy.herokuapp.com/",
+        api_url: "https://api.nlpcloud.io/v1/gpu/custom-model/gpt-j-42e36450/generation?",
         api_settings: [
           { type: "number", key: "max_length", value: 100 },
           { type: "text", key: "end_sequence", value: "." },

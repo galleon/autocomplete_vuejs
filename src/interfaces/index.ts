@@ -17,6 +17,7 @@ export interface IArticleSubject {
 }
 
 export interface IArticleMetadata {
+    api_proxy: string;
     api_url: string;
     api_settings: IArticleMetadataSetting[];
 }
